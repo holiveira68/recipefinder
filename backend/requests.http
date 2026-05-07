@@ -1,0 +1,7 @@
+@baseUrl = http://localhost:3000
+
+### Get recipe by slug
+GET {{baseUrl}}/api/v1/recipes/banana-oat-pancakes
+
+### List recipes
+GET {{baseUrl}}/api/v1/recipes
