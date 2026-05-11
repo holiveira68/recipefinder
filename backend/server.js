@@ -41,13 +41,6 @@ app.get("/api/v1/recipes", async (req, res) => {
   res.json(recipes);
 });
 
-// Global Error Handler
-app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(500).json({ error: "Internal server error" });
-});
-
-
 // List recipes v2 (filters + pagination)
 app.get("/api/v2/recipes", async (req, res) => {
   const PAGE_SIZE = 6;
@@ -92,6 +85,12 @@ app.get("/api/v2/recipes", async (req, res) => {
       totalPages: Math.ceil(total / PAGE_SIZE),
     },
   });
+});
+
+// Global Error Handler
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({ error: "Internal server error" });
 });
 
 // Start server
